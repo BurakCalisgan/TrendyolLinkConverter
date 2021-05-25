@@ -1,0 +1,33 @@
+version: '3.4'
+
+networks:
+  webapi-dev:
+    driver: nat
+
+services:
+  webapi_image:
+    image: trendyollinkconverter
+    depends_on: 
+      - "postgresql_image"
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+      - "5000:5000"
+      - "5001:5001"
+    environment: 
+      DB_CONNECTION_STRING: "host=postgresql_image;port=5432;database=TrendyolLink;username=postgres; password=123456789"
+    networks: 
+      - webapi-dev
+
+  postgresql_image:
+    image: postgres:latest
+    ports:
+      - "5432"
+    restart: always
+    environment: 
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "123456789"
+      POSTGRES_DB: "TrendyolLink"
+    networks: 
+      - webapi-dev
