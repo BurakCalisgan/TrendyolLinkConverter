@@ -1,4 +1,4 @@
-# BasketAppApi
+# Trendyol Link Converter
 
 ## Architectural Approaches
  * Clean Architecture, details: https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html
