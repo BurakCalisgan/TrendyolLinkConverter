@@ -1,0 +1,20 @@
+-New sln
+---dotnet new sln
+
+-New classlib
+--- dotnet new classlib -o src/Domain
+
+-New webapi
+---dotnet new webapi -o src/WebApi
+
+-adding classlib to sln
+---dotnet sln add src/Domain
+
+--adding webapi to sln
+dotnet sln add src/WebApi
+
+-New Test Project
+---dotnet new xunit -o tests/WebApi.UnitTests
+
+--adding test project to sln
+dotnet sln add tests/WebApi.UnitTests
